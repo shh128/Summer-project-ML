@@ -11,7 +11,7 @@
 #                            ii)  MAD : the mean absolute deviation
 #                           iii) MAPE : the mean absolute percentage error
 #                            iv) poly : use power function to weigh the errors
-#            6) poly      : the power for crit power 
+#            6) power      : the power for crit power 
 #                           (it is only meaningful when crit is "poly")
 # Condition: 1) length of actual_lst, pred1_lst and pred2_lst is equal
 #            2) h must be an integer and it must be greater than 0 and less than 
