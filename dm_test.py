@@ -69,7 +69,8 @@ def dm_test(actual_lst, pred1_lst, pred2_lst, h = 1, crit="MSE", power = 2):
             return (rt,msg)  
         # Check if every value of the input lists are numerical values
         from re import compile as re_compile
-        comp = re_compile("^\d+?\.\d+?$")  
+        # important: change was made to the line below
+        comp = re_compile("([1-9]\d*(\.[0-9]*[1-9])?)|(0\.\d*[1-9])|[0]")  
         def compiled_regex(s):
             """ Returns True is string is a number. """
             if comp.match(s) is None:
@@ -145,11 +146,16 @@ def dm_test(actual_lst, pred1_lst, pred2_lst, h = 1, crit="MSE", power = 2):
         T = float(N)
         for i in np.arange(0, N-k):
               autoCov += ((Xi[i+k])-Xs)*(Xi[i]-Xs)
+            #   print(autoCov)
         return (1/(T))*autoCov
     gamma = []
     for lag in range(0,h):
         gamma.append(autocovariance(d_lst,len(d_lst),lag,mean_d)) # 0, 1, 2
     V_d = (gamma[0] + 2*sum(gamma[1:]))/T
+    # print(gamma)
+    # print(gamma[0])
+    # print(gamma[1:])
+    # print(T)
     DM_stat=V_d**(-0.5)*mean_d
     harvey_adj=((T+1-2*h+h*(h-1)/T)/T)**(0.5)
     DM_stat = harvey_adj*DM_stat
