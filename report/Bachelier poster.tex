@@ -6,7 +6,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[final]{beamer}
-\usepackage[scale=1.1]{beamerposter}
+\usepackage[scale=1]{beamerposter}
 \usepackage{graphicx}			% allows us to import images
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -357,30 +357,15 @@
     \end{column}
 
     \begin{column}{\onecolwid}
-        \begin{block}{Main result}
+        \begin{block}{value-weighted portfolio}
          \rmfamily{
-            \textbf{Main theorem}:
-            The value function $u \in C(\Real_+^3) \cap C^{2,2,1}(\Real_{++}^3)$. Furthermore, $u$ is the smallest nonnegative classical solution to (VE) in each of the following cases (where $y$ is arbitrary in $\Real_{++}$):
+            \textbf{Reasons for value-weighted portfolio construction}:
             \begin{enumerate}
-                \item[(A)] When $\prob[\tau^y_0 =\infty] =1$.
-                \item[(B)] When $\prob[\tau^y_0 < \infty] >0$ and $\mu(0)=0$.
-                \item[(C)] When $\prob[\tau^y_0<\infty] >0$, $\mu(0)>0$, and $u\in \fC$.
+                \item[(i)] We choose value-weighted portfolios because stocks with a large market value of equity are often “important” stocks that are traded and held by a large number of people. We want to measure the performance of our models while targeting those important assets.
+                \item[(ii)] The target of our model is to forecast the return of each permno, however, in real life, people often focus on the return of a portfolio rather than single stocks. Thus we also need to measure the performance of simple portfolios to get a better understanding of the performance of our models.
             \end{enumerate}
-            In all of the above cases, the following two statements hold:
-            \begin{enumerate}
-            \item[(i)] If $g$ is strictly sublinear in $x$ and poly. in $y$, then $u$ is the unique classical solution within the same class of functions.
-
-            \item[(ii)] If $g$ is linear growth in $x$ and poly. in $y$, then $u$ is the unique classical solution within the same class of functions \emph{if and only if} the  asset-price process is a martingale.
-            \end{enumerate}
-
             \vskip1ex
-
-            \textbf{Remark}: (BC) is not needed in Case (C) above, essentially because the time that volatility process spends at $0$ has Lebesgue measure zero.
-        }
-        \end{block}
-
-        \begin{block}{Technical issues in the proof}
-        \rmfamily{
+            \textbf{Details of portfolio construction process}: We only construct portfolios for gbrt, random forest as well as neural network models as these models have significantly higher out-of-sample $R^2$ than other models. We set the transaction cost to be 2\% and use the S\&P500 index as the benchmark. Given the models' predicted returns and the market equity of each permno, we first rank the permnos by their predicted returns, then we select the 50 permnos that have the highest average return as the stocks to buy, and the 50 permnos that have the lowest average return as the stocks to sell, and weight each permno according to their market equity. Doing so, we now have a long-only portfolio and a short-only portfolio for each model, we then combine them to make a long-short portfolio for each model.
             \textbf{Lemma}: $u \in C(\Real_+^3)$.
 
             Since the operator degenerates at $y=0$, regularity properties of uniform parabolic operator is used to show $u$ continuous in $\Real_{++}^3$; the representation $\expec\bra{S^{x,y}_T} = x \prob (\zeta^y > T)$ is used to show that $u$ continuously extends to $y=0$. (Here $\zeta^y$ is the explosion time of $\wt{Y}$.)
@@ -402,9 +387,6 @@
 
             The martingale property of $S$ and the growth assumption on $g$ ensure that the limit can be exchanged with the expectation.
         }
-        \end{block}
-
-        \begin{block}{Numerical computations}
         \rmfamily{
          When the uniqueness fails (the asset-price is a strict local martingale),
          \[
@@ -416,16 +398,24 @@
         }
         \end{block}
 
-          \begin{block}{References}
-		        \footnotesize{\rmfamily{\begin{thebibliography}{99}
-		        \bibitem{1} A. Andersen and V. Piterbarg, Finan. \& Stoch., 11 (2007), 29 - 50.
-                \bibitem{2} E. Ekstr\"{o}m and J. Tysk, J. Math. Analysis and Applications, (2010).
-                \bibitem{3} D. Heath and M. Schweizer, J. Appl. Prob., 37 (2000), 947 - 957.
-		        \bibitem{4} S.~L. Heston, M. Loewenstein, and G.~A. Willard, Rev. of Finanancial Studies, 20 (2007), 359 - 390.
-                \bibitem{5} P.~L. Lions and M. Musiela, Ann. Inst. H. Poincare Anal. Non Lin\'{e}are, 24 (2007), 1-16.
-                \bibitem{6} C. Sin, Adv. Appl. Prob., 30 (1998), 256 - 268.
-		        \end{thebibliography}}}
-		  \end{block}
+        \begin{block}{conclusion}
+         \rmfamily{
+            \textbf{Main theorem}:
+            The value function $u \in C(\Real_+^3) \cap C^{2,2,1}(\Real_{++}^3)$. Furthermore, $u$ is the smallest nonnegative classical solution to (VE) in each of the following cases (where $y$ is arbitrary in $\Real_{++}$):
+            \begin{enumerate}
+                \item[(A)] When $\prob[\tau^y_0 =\infty] =1$.
+                \item[(B)] When $\prob[\tau^y_0 < \infty] >0$ and $\mu(0)=0$.
+                \item[(C)] When $\prob[\tau^y_0<\infty] >0$, $\mu(0)>0$, and $u\in \fC$.
+            \end{enumerate}
+            In all of the above cases, the following two statements hold:
+            \begin{enumerate}
+            \item[(i)] If $g$ is strictly sublinear in $x$ and poly. in $y$, then $u$ is the unique classical solution within the same class of functions.
+
+            \item[(ii)] If $g$ is linear growth in $x$ and poly. in $y$, then $u$ is the unique classical solution within the same class of functions \emph{if and only if} the  asset-price process is a martingale.
+            \end{enumerate}
+        }
+        \end{block}
+
     \end{column}
 
  \end{columns}
