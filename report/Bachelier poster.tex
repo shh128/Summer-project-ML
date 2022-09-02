@@ -1,0 +1,433 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX poster template
+% Created by Nathaniel Johnston
+% August 2009
+% http://www.nathanieljohnston.com/index.php/2009/08/latex-poster-template/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[final]{beamer}
+\usepackage[scale=1.1]{beamerposter}
+\usepackage{graphicx}			% allows us to import images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+%-----------------------------------------------------------
+% Define the column width and poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% The separation I chose is 0.024 and I want 4 columns
+% Then set onecolwid to be (1-(4+1)*0.024)/4 = 0.22
+% Set twocolwid to be 2*onecolwid + sepwid = 0.464
+%-----------------------------------------------------------
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\paperwidth}{120cm}
+\setlength{\paperheight}{90cm}
+\setlength{\sepwid}{0.02\paperwidth}
+\setlength{\onecolwid}{0.31\paperwidth}
+\setlength{\twocolwid}{0.66\paperwidth}
+\setlength{\topmargin}{-0.5in}
+\usetheme{confposter}
+
+%-----------------------------------------------------------
+% Define colours (see beamerthemeconfposter.sty to change these colour definitions)
+%-----------------------------------------------------------
+
+\setbeamercolor{block title}{fg=ngreen,bg=white}
+\setbeamercolor{block body}{fg=black,bg=white}
+\setbeamercolor{block alerted title}{fg=white,bg=dblue!70}
+\setbeamercolor{block alerted body}{fg=black,bg=dblue!10}
+
+% MATH -----------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{stasss}[thm]{Standing Assumption}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{exa}[thm]{Example}
+
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\Natural}{\mathbb N}
+\newcommand{\Complex}{\mathbb C}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\such}{\, | \, }
+% PROBABILITY ----------------------------------------------------
+\newcommand{\prob}{\mathbb{P}}
+\newcommand{\Exp}{\mathcal E}
+\newcommand{\parti}{\mathbb{T}}
+\newcommand{\Time}{\mathfrak{T}}
+\newcommand{\Timestar}{\Time{[0, \tau^*]}}
+\newcommand{\oTime}{\overline{\Time}}
+\newcommand{\oE}{\overline{E}}
+\newcommand{\ove}{\overline{e}}
+\newcommand{\qprob}{\mathbb{Q}}
+\newcommand{\expec}{\mathbb{E}}
+\newcommand{\expecp}{\expec_\prob}
+\newcommand{\expecq}{\expec_\qprob}
+\newcommand{\var}{\mathrm{var}}
+\newcommand{\cov}{\mathrm{cov}}
+\newcommand{\corr}{\mathrm{cor}}
+\newcommand{\probtriple}{(\Omega, \mathcal{F}, \prob)}
+\newcommand{\basis}{(\Omega,  \, (\F_t)_{t \in \Real_+}, \, \prob)}
+\newcommand{\filtration}{\mathbf{F} = \pare{\mathcal{F}_t}_{t \in \Real_+}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\cadlag}{c\`adl\`ag\,}
+\newcommand{\caglad}{c\`agl\`ad}
+\newcommand{\ud}{\mathrm d}
+\newcommand{\inner}[2]{\langle #1 , #2 \rangle}
+% MISC -----------------------------------------------------------
+\newcommand{\liminfn}{\liminf_{n \to \infty}}
+\newcommand{\limsupn}{\limsup_{n \to \infty}}
+
+\newcommand{\limn}{\lim_{n \to \infty}}
+
+\newcommand{\plim}{{\prob \textrm{-} \lim}}
+\newcommand{\plimn}{\plim_{n \to \infty}}
+
+
+
+\newcommand{\ttau}{{\widetilde{\tau}}}
+\newcommand{\otau}{{\overline{\tau}}}
+
+
+\newcommand{\uS}{\underline{S}}
+\newcommand{\oS}{\overline{S}}
+
+\newcommand{\uC}{\underline{\mathcal{C}}}
+\newcommand{\oC}{\overline{\mathcal{C}}}
+
+
+
+\newcommand{\pare}[1]{\left(#1\right)}
+\newcommand{\bra}[1]{\left[#1\right]}
+\newcommand{\cbra}[1]{\left\{#1\right\}}
+\newcommand{\dbra}[1]{[\kern-0.15em[ #1 ]\kern-0.15em]}
+\newcommand{\dbraco}[1]{[\kern-0.15em[ #1 [\kern-0.15em[}
+\newcommand{\dbraoc}[1]{]\kern-0.15em] #1 ]\kern-0.15em]}
+
+\newcommand{\og}{\overline{g}}
+
+
+
+
+\newcommand{\dfn}{\, := \,}
+
+
+\newcommand{\htau}{\widehat{\tau}}
+
+
+
+\newcommand{\indic}{\mathbb{I}}
+
+\newcommand{\tsigma}{\widetilde{\sigma}}
+\newcommand{\wh}[1]{\widehat{#1}}
+
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\bL}{\mathbb{L}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\fR}{\mathfrak{R}}
+\newcommand{\fM}{\mathfrak{M}}
+\newcommand{\fH}{\mathfrak{H}}
+\newcommand{\fC}{\mathfrak{C}}
+\newcommand{\fs}{\mathfrak{s}}
+\newcommand{\fv}{\mathfrak{v}}
+\newcommand{\ey}{{}^\epsilon \kern-0.15em Y}
+\newcommand{\ev}{{}^\epsilon \kern-0.15em V}
+\newcommand{\eM}{{}^\epsilon \kern-0.27em M}
+\newcommand{\wt}[1]{\widetilde{#1}}
+
+\newcommand{\com}[1]{{ \color{blue} \textbf{[#1]} }}
+
+
+\newcommand{\esssup}[1]{{\text{esssup}_{#1}}}
+
+%-----------------------------------------------------------
+% Name and authors of poster/paper/research
+%-----------------------------------------------------------
+
+\title{Empirical Asset Pricing through Machine Learning}
+\author{Hao Xing}
+\institute{Boston University}
+
+%-----------------------------------------------------------
+% Start the poster itself
+%-----------------------------------------------------------
+% The \rmfamily command is used frequently throughout the poster to force a serif font to be used for the body text
+% Serif font is better for small text, sans-serif font is better for headers (for readability reasons)
+%-----------------------------------------------------------
+
+\usepackage{exscale}
+
+\begin{document}
+\begin{frame}[t]
+ \begin{columns}[t]												% the [t] option aligns the column's content at the top
+
+  \begin{column}{\sepwid}\end{column}			% empty spacer column
+
+    \begin{column}{\onecolwid}
+
+      \begin{block}{Introduction}
+        \rmfamily{In a Markovian stochastic volatility model, the value function of a European contingent claim is the expectation of the terminal payoff under a (local) martingale measure, conditioning on the market's current configuration. Heuristically, this value function satisfies a PDE, which we call the \emph{valuation equation}. Even though the intuition is clear, it is surprisingly tricky to rigorously prove the heuristic connection, because
+
+        \vskip1ex
+
+        \begin{itemize}
+         \item Volatility may vanish on the boundaries of state space. Then the standard Feynman-Kac formula cannot be applied.
+         \item The asset-price process can be a \emph{strict local martingale}; see [1]. Then the valuation equation may have multiple solutions; see [4].
+        \end{itemize}
+
+
+        \vskip1ex
+
+        We focus on the following questions in stochastic volatility models:
+
+         \vskip1ex
+
+        \begin{itemize}
+	       \item What is the concept of a solution (regarding smoothness and boundary conditions) such that the value function is one such solution?
+           \item What is a natural condition under which the value function is the unique solution?
+           \item When the uniqueness in fails, how could one identify the value function among all possible solutions?
+        \end{itemize}
+
+        The above questions have been discussed in [2], [3] and etc. We assume minimal assumptions on the stochastic volatility models, which may have various behaviors:
+
+        \vskip1ex
+
+        \begin{itemize}
+         \item The volatility can potentially reach zero.
+         \item The asset-price can be a strict local martingale.
+         \item The boundary condition to the valuation equation may be unnecessary.
+         \item The payoff function can be unbounded.
+        \end{itemize}
+        }
+      \end{block}
+
+      \vskip2ex
+
+      \begin{block}{The stochastic volatility model}
+       \rmfamily{On a filtered probability space $\basis$, the model has the following dynamics:
+       \begin{align*}
+        dS_t &= S_t \, b(Y_t) \,dW_t, \quad S_0 = x \in \Real_{+}, \\
+        dY_t &= \mu(Y_t) \,dt + \sigma(Y_t) \,dB_t, \quad Y_0 = y \in \Real_{+},
+       \end{align*}
+       where $W$ and $B$ are two Wiener processes with constant correlation $\rho\in (-1,1)$.
+
+       \vskip1ex
+
+       \textbf{Standing assumption}: (satisfied by most models in practice)
+        \begin{enumerate}
+            \item[(i)] $\mu: \Real_+ \rightarrow \Real$ is locally Lip. and $\mu(0) \geq 0$. $\sigma: \Real_+ \rightarrow \Real_+$ is locally $(1/2)$-H\"{o}lder, strictly positive on $\Real_{++}$, and satisfies $\sigma(0)=0$. Also,
+                \begin{equation*}
+                    |\mu(y)| + \sigma(y) \leq C(1+y) \quad \text{ for } y\in \Real_+.\label{eq: mu sigma linear}
+                \end{equation*}
+            \item[(ii)] $b: \Real_+ \rightarrow \Real_+$ satisfies $b(y)>0$ for $y\in \Real_{++}$ and $b(0)=0$. $b$ is locally $\alpha$-H\"{o}lder, and $\sigma b$ is locally Lip. $b$ has at most polynomial growth.
+        \end{enumerate}
+        }
+      \end{block}
+
+      \begin{block}{Zero volatility}
+     \rmfamily{
+      For $y \in \Real_+$, we define $\tau^y_0 := \inf\set{t \in \Real_{++} \such Y^y_t =0}$.
+      \begin{itemize}
+	       \item when $\mu(0)=0$, $Y^y_t = 0$ for $\tau^y_0 \leq t < \infty$, thus $0$ is \emph{absorbing};
+	       \item when $\mu(0)>0$, $Y^y$ is lead back into $\Real_{++}$ after $\tau^y_0$.
+      \end{itemize}
+
+      \vskip1ex
+
+      \textbf{Lemma}:
+        Fix $y \in \Real_+$. If $\mu(0)>0$, then $\int_{\Real_+} \indic_{\set{Y^y_t = 0}} d t= 0$.
+
+      \vskip1ex
+
+      In this case the point $0$ is \emph{instantaneously reflecting}.
+     }
+     \end{block}
+    \end{column}
+
+    \begin{column}{\onecolwid}
+     \begin{block}{Martingale property of the asset-price}
+      \rmfamily{
+      Let us consider an auxiliary diffusion $\wt{Y}$:
+      \begin{equation*}
+        d\wt{Y}_t = (\mu+ \rho b \sigma) (\wt{Y}_t) \, dt + \sigma(\wt{Y}_t) \, d B_t, \quad \wt{Y}_0=y.
+      \end{equation*}
+
+      \vskip2ex
+
+      \textbf{Proposition}: The following statements are equivalent:
+      \begin{enumerate}
+       \item[(i)] $S^{x,y}_{\cdot \wedge T}$ is a strict local martingale for some, then all, $(x,y,T)\in \Real^3_{++}$.
+       \item[(ii)] $\wt{Y}$ \emph{explodes} to $\infty$ in finite time.
+       \item[(iii)] $\fv(\infty) = \infty$.
+      \end{enumerate}
+
+      \vskip2ex
+
+      Here $\fv(y) := \int_c^{y} \frac{\fs(y) - \fs(\xi)}{\fs'(\xi) \sigma^2(\xi)} \, d \xi$ for $y \in \Real_{++}$, where $\fs$ is the scale function for the diffusion $\wt{Y}$.
+
+      \vskip2ex
+
+      \textbf{Remark}: This proposition uses Sin's argument in [6]. But its statement is stronger than the one in [6]. It says that in a time-homogeneous model, if $S$ is going to lose its martingale property eventually, it must lose it immediately. This proposition also generalizes Theorem~2.4 in [5].
+      }
+     \end{block}
+
+     \begin{block}{The valuation equation}
+     \rmfamily{
+      Given a continuous payoff $g: \Real_+^2 \rightarrow \Real_+$ with $g(x,y)\leq C(1+x+y^m)$.
+
+      The value function of a European option is defined via
+      \[
+       u(x,y,T) := \expec\bra{g\pare{S^{x,y}_T, Y^y_T}}, \quad \text{ for } (x,y,T) \in \Real_+^3.
+      \]
+      $u$ grows at most linear in $x$ and poly. in $y$.
+
+      \vskip2ex
+
+      The valuation equation is
+      \vskip1ex
+
+      \begin{equation}\label{eq: pricing eq} \tag{VE}
+        \begin{split}
+        & \partial_T u (x,y,T) = \cL v (x,y,T), \quad (x,y,T) \in \Real_{++}^3,\\
+        & u(x,y,0) = g(x,y), \quad (x,y)\in \Real_+^2,
+        \end{split}
+        \end{equation}
+
+      \vskip1ex
+
+        in which $\cL$ is the infinitesimal generator of $(S, Y)$:
+        \[
+        \cL := \mu(y) \partial_y + \frac12 b^2(y) x^2 \partial^2_{xx} +  \frac12 \sigma^2(y) \partial^2_{yy}  + \rho b(y) \sigma(y) x \partial^2_{x y}.
+        \]
+
+        Note that $\cL$ degenerates at $y=0$ to the operator $\mu(0)\partial_y$.
+
+        \vskip2ex
+
+        \textbf{Boundary conditions}:
+        \begin{itemize}
+         \item When the boundary is absorbing, $v(x,0,T) = g(x,0)$ needs to be satisfied.
+         \item When the boundary is instantaneously reflecting, one usually chooses
+         \begin{equation}\label{BC}
+          \partial_T v(x,0,T) = \mu(0) \partial_y v(x,0,T). \tag{BC}
+         \end{equation}
+        \end{itemize}
+
+        \vskip2ex
+
+        \textbf{Definition}:A function $v\in C(\Real_+^3) \cap C^{2,2,1}(\Real_{++}^3)$, that solves (VE), is called a \emph{classical solution} in all the following cases (below, $y$ is arbitrary in $\Real_{++}$):
+        \begin{enumerate}
+            \item[(A)] When $\prob[\tau^y_0=\infty]=1$.
+
+            \item[(B)] When $\prob[\tau^y_0<\infty] >0$, $\mu(0)=0$, and $v$ satisfies $v(x,0,T) = g(x,0)$.
+
+            \item[(C)] When $\prob[\tau^y_0<\infty]>0$, $\mu(0)>0$, and $v$ belongs to
+            \[
+            \begin{split}
+                \fC := &\left\{ f \in C(\Real_+^3) \cap C^{2,2,1}(\Real_{++}^3) \such \text{all } \partial_T f, \  \partial_y f, \ y^{2 \alpha}
+                \partial^2_{xx} f \right. \\
+                & \left. \text{ are locally bounded on } \Real_{++} \times \Real_+ \times \Real_{++}\right\}.
+            \end{split}
+            \]
+            For any $f\in C(\Real_+^3) \cap C^{2,2,1}(\Real_{++}^3)$, by saying that $\partial_T f, \  \partial_y f$, and $\ y^{2 \alpha} \partial^2_{xx} f$ are locally bounded on $y=0$, we mean that
+            \[
+                \limsup_{y \downarrow 0} \sup_{(x, T) \in [n^{-1}, n]^2} \bra{|\partial_T f| + |\partial_y f| + y^{2 \alpha} |\partial^2_{xx} f| }  < \infty
+            \]
+            holds for all $n \in \Natural$.
+            \end{enumerate}
+     }
+     \end{block}
+    \end{column}
+
+    \begin{column}{\onecolwid}
+        \begin{block}{Main result}
+         \rmfamily{
+            \textbf{Main theorem}:
+            The value function $u \in C(\Real_+^3) \cap C^{2,2,1}(\Real_{++}^3)$. Furthermore, $u$ is the smallest nonnegative classical solution to (VE) in each of the following cases (where $y$ is arbitrary in $\Real_{++}$):
+            \begin{enumerate}
+                \item[(A)] When $\prob[\tau^y_0 =\infty] =1$.
+                \item[(B)] When $\prob[\tau^y_0 < \infty] >0$ and $\mu(0)=0$.
+                \item[(C)] When $\prob[\tau^y_0<\infty] >0$, $\mu(0)>0$, and $u\in \fC$.
+            \end{enumerate}
+            In all of the above cases, the following two statements hold:
+            \begin{enumerate}
+            \item[(i)] If $g$ is strictly sublinear in $x$ and poly. in $y$, then $u$ is the unique classical solution within the same class of functions.
+
+            \item[(ii)] If $g$ is linear growth in $x$ and poly. in $y$, then $u$ is the unique classical solution within the same class of functions \emph{if and only if} the  asset-price process is a martingale.
+            \end{enumerate}
+
+            \vskip1ex
+
+            \textbf{Remark}: (BC) is not needed in Case (C) above, essentially because the time that volatility process spends at $0$ has Lebesgue measure zero.
+        }
+        \end{block}
+
+        \begin{block}{Technical issues in the proof}
+        \rmfamily{
+            \textbf{Lemma}: $u \in C(\Real_+^3)$.
+
+            Since the operator degenerates at $y=0$, regularity properties of uniform parabolic operator is used to show $u$ continuous in $\Real_{++}^3$; the representation $\expec\bra{S^{x,y}_T} = x \prob (\zeta^y > T)$ is used to show that $u$ continuously extends to $y=0$. (Here $\zeta^y$ is the explosion time of $\wt{Y}$.)
+            
+            \vskip2ex
+
+            We use $\ey \dfn \max \set{Y, \epsilon}$ to approx. $Y$. For a classical solution $v$ in Case (C), define $\ev_t := v(S_t, \ey_t, T-t)$ for $t \leq T$, we apply It\^{o}'s formula to $\ev_{\cdot}$. Since $L_0(t) \equiv 0$ (see Lemma) and $v\in \fC$, we show that $\prob-\lim_{\epsilon\downarrow 0} \ev_{\cdot}$ is a local martingale.
+
+            \vskip2ex
+
+            Let $v$ be another classical solution of (VE) and $\set{\sigma_n}_{n\in \Natural}$ be a localizing sequence of $v(S_{\cdot \wedge T}, Y_{\cdot \wedge T}, T-\cdot \wedge T)$,
+
+            \[
+            \begin{split}
+              v(x,y,T) & = \lim_{n\rightarrow \infty} \expec \bra{v\pare{S_{\sigma_n\wedge T}, Y_{\sigma_n\wedge T}, T- \sigma_n \wedge T}} \\
+                       & =  \expec \bra{\lim_{n\rightarrow \infty} v\pare{S_{\sigma_n\wedge T}, Y_{\sigma_n\wedge T}, T- \sigma_n \wedge T}} = u(x,y,T).
+            \end{split}
+            \]
+
+            The martingale property of $S$ and the growth assumption on $g$ ensure that the limit can be exchanged with the expectation.
+        }
+        \end{block}
+
+        \begin{block}{Numerical computations}
+        \rmfamily{
+         When the uniqueness fails (the asset-price is a strict local martingale),
+         \[
+          u(x,y,T) = \lim_{\epsilon \downarrow 0} u^{\epsilon}(x,y,T), \quad \text{ for } (x,y,T) \in \Real_+^3,
+         \]
+         where $u^{\epsilon}= \expec\bra{g^{\epsilon}(S_T, Y_T)}$ for some bounded $g^{\epsilon}$ is the unique solution of (VE).
+
+         [2] gives sufficient condition under which (BC) is satisfied for each $u^{\epsilon}$. This will help to solve $u^{\epsilon}$ in finite difference schemes.
+        }
+        \end{block}
+
+          \begin{block}{References}
+		        \footnotesize{\rmfamily{\begin{thebibliography}{99}
+		        \bibitem{1} A. Andersen and V. Piterbarg, Finan. \& Stoch., 11 (2007), 29 - 50.
+                \bibitem{2} E. Ekstr\"{o}m and J. Tysk, J. Math. Analysis and Applications, (2010).
+                \bibitem{3} D. Heath and M. Schweizer, J. Appl. Prob., 37 (2000), 947 - 957.
+		        \bibitem{4} S.~L. Heston, M. Loewenstein, and G.~A. Willard, Rev. of Finanancial Studies, 20 (2007), 359 - 390.
+                \bibitem{5} P.~L. Lions and M. Musiela, Ann. Inst. H. Poincare Anal. Non Lin\'{e}are, 24 (2007), 1-16.
+                \bibitem{6} C. Sin, Adv. Appl. Prob., 30 (1998), 256 - 268.
+		        \end{thebibliography}}}
+		  \end{block}
+    \end{column}
+
+ \end{columns}
+\end{frame}
+\end{document} 

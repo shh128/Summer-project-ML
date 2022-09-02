@@ -1,0 +1,11 @@
+introduction/background
+
+methodology/model
+
+performance evaluation/feature importance/feature's meaning
+
+portfolio 我负责的部分
+
+conclusion
+
+
