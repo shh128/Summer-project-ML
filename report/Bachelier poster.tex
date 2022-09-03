@@ -8,9 +8,10 @@
 \documentclass[final]{beamer}
 \usepackage[scale=1]{beamerposter}
 \usepackage{graphicx}			% allows us to import images
+\usepackage{subfig}       % to put figures side by side
 \usepackage{amsmath}
 \usepackage{amsfonts}
-
+\usepackage{booktabs}
 %-----------------------------------------------------------
 % Define the column width and poster size
 % To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
@@ -366,35 +367,34 @@
             \end{enumerate}
             \vskip1ex
             \textbf{Details of portfolio construction process}: We only construct portfolios for gbrt, random forest as well as neural network models as these models have significantly higher out-of-sample $R^2$ than other models. We set the transaction cost to be 2\% and use the S\&P500 index as the benchmark. Given the models' predicted returns and the market equity of each permno, we first rank the permnos by their predicted returns, then we select the 50 permnos that have the highest average return as the stocks to buy, and the 50 permnos that have the lowest average return as the stocks to sell, and weight each permno according to their market equity. Doing so, we now have a long-only portfolio and a short-only portfolio for each model, we then combine them to make a long-short portfolio for each model.
-            \textbf{Lemma}: $u \in C(\Real_+^3)$.
-
-            Since the operator degenerates at $y=0$, regularity properties of uniform parabolic operator is used to show $u$ continuous in $\Real_{++}^3$; the representation $\expec\bra{S^{x,y}_T} = x \prob (\zeta^y > T)$ is used to show that $u$ continuously extends to $y=0$. (Here $\zeta^y$ is the explosion time of $\wt{Y}$.)
-            
+            \vskip1ex
+            \textbf{Result}: while the neural network model has bad performance, the gbrt model and random forest model have relatively good performance and can beat the benchmark.
+            \begin{figure}
+              \centering
+              \subfloat[\centering cumulative return of long-short portfolios]{{\includegraphics[width=0.44\linewidth]{picture_folder/gbrt_n_rf_output.png} }}
+              \quad
+              \subfloat[\centering monthly return of long-short portfolios]{{\includegraphics[width=0.44\linewidth]{picture_folder/val.png} }}
+              \label{fig:portfolio_return}
+          \end{figure}
             \vskip2ex
-
-            We use $\ey \dfn \max \set{Y, \epsilon}$ to approx. $Y$. For a classical solution $v$ in Case (C), define $\ev_t := v(S_t, \ey_t, T-t)$ for $t \leq T$, we apply It\^{o}'s formula to $\ev_{\cdot}$. Since $L_0(t) \equiv 0$ (see Lemma) and $v\in \fC$, we show that $\prob-\lim_{\epsilon\downarrow 0} \ev_{\cdot}$ is a local martingale.
-
-            \vskip2ex
-
-            Let $v$ be another classical solution of (VE) and $\set{\sigma_n}_{n\in \Natural}$ be a localizing sequence of $v(S_{\cdot \wedge T}, Y_{\cdot \wedge T}, T-\cdot \wedge T)$,
-
-            \[
-            \begin{split}
-              v(x,y,T) & = \lim_{n\rightarrow \infty} \expec \bra{v\pare{S_{\sigma_n\wedge T}, Y_{\sigma_n\wedge T}, T- \sigma_n \wedge T}} \\
-                       & =  \expec \bra{\lim_{n\rightarrow \infty} v\pare{S_{\sigma_n\wedge T}, Y_{\sigma_n\wedge T}, T- \sigma_n \wedge T}} = u(x,y,T).
-            \end{split}
-            \]
-
-            The martingale property of $S$ and the growth assumption on $g$ ensure that the limit can be exchanged with the expectation.
-        }
-        \rmfamily{
-         When the uniqueness fails (the asset-price is a strict local martingale),
-         \[
-          u(x,y,T) = \lim_{\epsilon \downarrow 0} u^{\epsilon}(x,y,T), \quad \text{ for } (x,y,T) \in \Real_+^3,
-         \]
-         where $u^{\epsilon}= \expec\bra{g^{\epsilon}(S_T, Y_T)}$ for some bounded $g^{\epsilon}$ is the unique solution of (VE).
-
-         [2] gives sufficient condition under which (BC) is satisfied for each $u^{\epsilon}$. This will help to solve $u^{\epsilon}$ in finite difference schemes.
+          As we can see, the portfolio based on the predicted returns of random forest model has the hightest cumulative return. However, the sharpe ratio(annualized) of random forest's portfolio is around 1.27, which is smaller then the sharpe ratio of gbrt's portfolio, which is around 3.28. 
+          \begin{table}[]
+            \caption{the SR, IR, MDD of each model}
+            \label{tab:sr_n_ir_n_md}
+            \vspace{-15mm}
+            \resizebox{\columnwidth}{!}{%
+            \begin{tabular}{@{}llll@{}}
+            \toprule
+            \textbf{MODELS} &
+              annualized sharpe ratio &
+              \begin{tabular}[c]{@{}l@{}}annualized information ratio\\ (with the benchmark of S\&P500 index)\end{tabular} &
+              maximum drawdown \\ \midrule
+            neural network & 0.921811 &          &           \\
+            random forest  & 3.275392 & 0.530446 & -0.283552 \\
+            gbrt           & 1.269521 & 1.048854 & -0.228834 \\ \bottomrule
+            \end{tabular}%
+            }
+            \end{table}
         }
         \end{block}
 
