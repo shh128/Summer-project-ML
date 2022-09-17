@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.8.13)  2 SEP 2022 23:50
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.8.13)  17 SEP 2022 12:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/spectre/Desktop/summer_project/Summer-project-ML/report/Bachelier poster.tex"
-(/home/spectre/Desktop/summer_project/Summer-project-ML/report/Bachelier poster.tex
+**"/home/spectre/Desktop/summer_project/Summer-project-ML/report/old_theme/Bachelier poster.tex"
+(/home/spectre/Desktop/summer_project/Summer-project-ML/report/old_theme/Bachelier poster.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-04-10> (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2022/02/08 v3.66 A class for typesetting presentations
@@ -937,11 +937,11 @@ Package rerunfilecheck Info: File `"Bachelier poster".out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  28317 strings out of 476156
- 561244 string characters out of 5814963
- 966846 words of memory out of 5000000
+ 561274 string characters out of 5814963
+ 967013 words of memory out of 5000000
  48500 multiletter control sequences out of 15000+600000
  546435 words of font info for 88 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 99i,25n,133p,906b,1257s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,25n,133p,916b,1257s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Bachelier poster.xdv (1 page, 41672 bytes).
+Output written on Bachelier poster.xdv (1 page, 41704 bytes).

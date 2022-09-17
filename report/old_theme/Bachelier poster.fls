@@ -1,7 +1,7 @@
-PWD /home/spectre/Desktop/summer_project/Summer-project-ML/report
+PWD /home/spectre/Desktop/summer_project/Summer-project-ML/report/old_theme
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/xetex/xelatex.fmt
-INPUT /home/spectre/Desktop/summer_project/Summer-project-ML/report/Bachelier poster.tex
+INPUT /home/spectre/Desktop/summer_project/Summer-project-ML/report/old_theme/Bachelier poster.tex
 OUTPUT Bachelier poster.log
 INPUT /usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 INPUT /usr/share/texmf-dist/tex/latex/beamer/beamer.cls

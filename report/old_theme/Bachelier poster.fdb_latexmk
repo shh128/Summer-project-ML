@@ -1,10 +1,10 @@
 # Fdb version 3
-["xdvipdfmx"] 1662177005 "Bachelier poster.xdv" "Bachelier poster.pdf" "Bachelier poster" 1662177005
-  "Bachelier poster.xdv" 1662177005 41672 8792ea5d887f57209f2223c8f8a5f1a3 "xelatex"
+["xdvipdfmx"] 1663432872 "Bachelier poster.xdv" "Bachelier poster.pdf" "Bachelier poster" 1663432872
+  "Bachelier poster.xdv" 1663432872 41704 4838c99ab5b7fa2b72227e4b940c8dca "xelatex"
   (generated)
   "Bachelier poster.pdf"
-["xelatex"] 1662177004 "/home/spectre/Desktop/summer_project/Summer-project-ML/report/Bachelier poster.tex" "Bachelier poster.xdv" "Bachelier poster" 1662177005
-  "/home/spectre/Desktop/summer_project/Summer-project-ML/report/Bachelier poster.tex" 1662177003 18948 974dc95b0f9b7438c62e707c4aba048b ""
+["xelatex"] 1663432871 "/home/spectre/Desktop/summer_project/Summer-project-ML/report/old_theme/Bachelier poster.tex" "Bachelier poster.xdv" "Bachelier poster" 1663432872
+  "/home/spectre/Desktop/summer_project/Summer-project-ML/report/old_theme/Bachelier poster.tex" 1663432871 18948 c0cebb8ee93b6f8719f1938d527a7e5b ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1650183167 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1650183167 1004 54797486969f23fa377b128694d548df ""
@@ -233,14 +233,14 @@
   "/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1650183167 4902 efb3d66683a2da2a232f71e3a571a899 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1660411394 5825172 4d451fe30f27315c656533d00142ceb7 ""
-  "Bachelier poster.aux" 1662177005 2076 87638b1051b98f81c6b3a2a2e8abe463 "xelatex"
-  "Bachelier poster.nav" 1662177005 307 9e520c26371a1250ff9fc1fe87f9c655 "xelatex"
+  "Bachelier poster.aux" 1663432872 2076 87638b1051b98f81c6b3a2a2e8abe463 "xelatex"
+  "Bachelier poster.nav" 1663432872 307 9e520c26371a1250ff9fc1fe87f9c655 "xelatex"
   "Bachelier poster.out" 0 -1 0 "xelatex"
-  "Bachelier poster.tex" 1662177003 18948 974dc95b0f9b7438c62e707c4aba048b ""
+  "Bachelier poster.tex" 1663432871 18948 c0cebb8ee93b6f8719f1938d527a7e5b ""
   "beamerposter.sty" 1312505604 7903 6c86db964bfeb8eb4c693bd1ad565686 ""
   "beamerthemeconfposter.sty" 1312505604 12667 ab68b2c56a781e0ce40180f231fdf984 ""
-  "picture_folder/gbrt_n_rf_output.png" 1662165185 55539 236d4d53d801dcf74688cc712212c15a ""
-  "picture_folder/val.png" 1662166674 133708 ffb4f6eec49da1f5d483d8be3fd8c6d0 ""
+  "picture_folder/gbrt_n_rf_output.png" 1663432868 55539 236d4d53d801dcf74688cc712212c15a ""
+  "picture_folder/val.png" 1663432868 133708 ffb4f6eec49da1f5d483d8be3fd8c6d0 ""
   (generated)
   "Bachelier poster.aux"
   "Bachelier poster.log"
